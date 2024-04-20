@@ -36,6 +36,8 @@ async def button(update: Update, context: CallbackContext):
         await show_10_class_menu(query)
     elif query.data == 'apps':
         await show_apps_menu(query)
+    elif query.data == 'back_to_start': 
+        await start(update, context)
 
 async def show_7_class_menu(query):
     keyboard = [
@@ -96,7 +98,11 @@ async def show_10_class_menu(query):
     keyboard = [
         [
             InlineKeyboardButton("Сила тяжести и сила всемирного тяготения", callback_data="gravity"),
+        ],
+        [
             InlineKeyboardButton("Сила тяжести на других планетах", callback_data="on_other_planets"),
+        ],
+        [
             InlineKeyboardButton("Первая космическая скорость", callback_data="space")
         ],
         [
