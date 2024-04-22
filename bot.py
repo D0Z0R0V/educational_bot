@@ -1,4 +1,5 @@
 from button import *
+from func import *
 import os
 
 if __name__ == '__main__':

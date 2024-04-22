@@ -1,6 +1,7 @@
 import logging
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import *
+from func import *
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -42,7 +43,9 @@ async def button(update: Update, context: CallbackContext):
 async def show_7_class_menu(query):
     keyboard = [
         [
-            InlineKeyboardButton("Явление тяготения", callback_data='gravity_phenomenon'),
+            InlineKeyboardButton("Явление тяготения. Сила тяжести.", callback_data='gravity_phenomenon')
+        ],
+        [    
             InlineKeyboardButton("Сила тяжести на других планетах", callback_data='gravity_force')
         ],
         [
@@ -68,8 +71,12 @@ async def button_7_class(update: Update, context: CallbackContext):
 async def show_9_class_menu(query):
     keyboard = [
         [
-            InlineKeyboardButton("Закон всемирного тяготения", callback_data="universal_gravity"),
-            InlineKeyboardButton("Ускорение свободного падения", callback_data="free_fall"),  
+            InlineKeyboardButton("Закон всемирного тяготения", callback_data="universal_gravity")
+        ],
+        [
+            InlineKeyboardButton("Ускорение свободного падения на земле.", callback_data="free_fall")
+        ],  
+        [    
             InlineKeyboardButton("Искусственные спутники Земли", callback_data="earth_satellites") 
         ],
         [
@@ -130,12 +137,22 @@ async def button_10_class(update: Update, context: CallbackContext):
 async def show_apps_menu(query):
     keyboard = [
         [
-            InlineKeyboardButton("конспект урока", callback_data="button1_data"),
-            InlineKeyboardButton("тестовые задания", callback_data="button2_data"),
-            InlineKeyboardButton("задачи", callback_data="button3_data"),
-            InlineKeyboardButton("мультимедийные материалы", callback_data="button1_data"),
-            InlineKeyboardButton("историческая справка", callback_data="button2_data"),
-            InlineKeyboardButton("словарь", callback_data="button3_data")
+            InlineKeyboardButton("конспект урока", callback_data="lesson_summary")
+        ],
+        [
+            InlineKeyboardButton("тестовые задания", callback_data="test_tasks")
+        ],
+        [
+            InlineKeyboardButton("задачи", callback_data="tasks")
+        ],
+        [
+            InlineKeyboardButton("мультимедийные материалы", callback_data="multimedia_materials")
+        ],
+        [
+            InlineKeyboardButton("историческая справка", callback_data="historical_background")
+        ],
+        [
+            InlineKeyboardButton("словарь", callback_data="dictionary")
         ],
         [
             InlineKeyboardButton("Назад", callback_data='back_to_start')
@@ -148,5 +165,27 @@ async def show_apps_menu(query):
     )
 
 async def button_apps(update: Update, context: CallbackContext):
-    pass
-
+    query = update.callback_query
+    query.answer()
+    if query.data == "lesson_summary":
+        await context.bot.send_message(chat_id=update.effective_chat.id, text="Конспекты уроков")
+        await displayLessonSummary(update, context)
+    elif query.data == "test_tasks":
+        await context.bot.send_message(chat_id=update.effective_chat.id, text="Тестовые задания, чтоб \
+            вы смогли закрепить свои знания")
+        await displayTestTasks(update, context)
+    elif query.data == "tasks":
+        await context.bot.send_message(chat_id=update.effective_chat.id, text="Задачи, которые \
+            вы можете решить самостоятельно")
+        await displayTasks(update, context)
+    elif query.data == "multimedia_materials":
+        await context.bot.send_message(chat_id=update.effective_chat.id, text="Мультимедийные материалы")
+        await displayMultimediaMaterials(update, context)
+    elif query.data == "historical_background":
+        await context.bot.send_message(chat_id=update.effective_chat, text="Историческая справка по разным темам")
+        await displayHistoricalBackground(update, context)
+    elif query.data == "dictionary":
+        await context.bot.send_message(chat_id=update.effective_chat, text="Словарь")
+        await displayDictionary(update, context)
+    elif query.data == "back_to_start":
+        await start(update, context)        
