@@ -17,7 +17,7 @@ class Register(StatesGroup):
 
 @router.message(CommandStart())
 async def cmd_start(message: Message):
-    await message.answer('Привет!\n Я твой помощник в мире физике, пожалуйста выбери \
+    await message.answer('Привет!\n Я твой помощник в мире физике, пожалуйста выбери\
         интересующую тебя тему', reply_markup=kb.main)
 
 

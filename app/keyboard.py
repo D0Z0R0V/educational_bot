@@ -35,6 +35,22 @@ apps = InlineKeyboardMarkup(inline_keyboard=[
      InlineKeyboardButton(text='историческая справка', callback_data='history'),
      InlineKeyboardButton(text='словарь', callback_data='dictionary')]])
 
+test_class = InlineKeyboardMarkup(inline_keyboard=[
+    [InlineKeyboardButton(text='Тестовые задания для 7 класса', callback_data='test_7')],
+    [InlineKeyboardButton(text='Тестовые задания для 9 класса', callback_data='test_9')],
+    [InlineKeyboardButton(text='Тестовые задания для 10 класса', callback_data='test_10')]])
+
+tasks = InlineKeyboardMarkup(inline_keyboard=[
+    [InlineKeyboardButton(text='Задачи с решением', callback_data='solution')],
+    [InlineKeyboardButton(text='Задачи из ОГЭ',callback_data='task_OGE')],
+    [InlineKeyboardButton(text='Задачи из ЕГЭ', callback_data='task_EGE')]])
+
+task_solution = InlineKeyboardMarkup(inline_keyboard=[
+    [InlineKeyboardButton(text='Уровень А', callback_data='level_a')],
+    [InlineKeyboardButton(text='Уровень В', callback_data='level_b')],
+    [InlineKeyboardButton(text='Уровень С', callback_data='level_c')]])
+
+multimedia = InlineKeyboardMarkup(inline_keyboard=[[]])
 
 get_number = ReplyKeyboardMarkup(keyboard=[[KeyboardButton(text='Отправить номер',
                                                            request_contact=True)]],
