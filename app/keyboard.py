@@ -46,9 +46,9 @@ tasks = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='Задачи из ЕГЭ', callback_data='task_EGE')]])
 
 task_solution = InlineKeyboardMarkup(inline_keyboard=[
-    [InlineKeyboardButton(text='Уровень А', callback_data='level_a')],
-    [InlineKeyboardButton(text='Уровень В', callback_data='level_b')],
-    [InlineKeyboardButton(text='Уровень С', callback_data='level_c')]])
+    [InlineKeyboardButton(text='Уровень А', callback_data='level_A')],
+    [InlineKeyboardButton(text='Уровень В', callback_data='level_B')],
+    [InlineKeyboardButton(text='Уровень С', callback_data='level_C')]])
 
 multimedia = InlineKeyboardMarkup(inline_keyboard=[[]])
 
