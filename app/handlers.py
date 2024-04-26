@@ -17,6 +17,7 @@ class Register(StatesGroup):
 
 @router.message(CommandStart())
 async def cmd_start(message: Message):
+    await message.answer_sticker(sticker='CAACAgIAAxkBAAEL_bFmK1wHzF7Lm-Kg415zk-5St4Tn-AACYw4AAgtaoEg7Cb-9icYZzTQE')
     await message.answer('Привет!\n Я твой помощник в мире физике, пожалуйста выбери\
         интересующую тебя тему', reply_markup=kb.main)
 
@@ -41,10 +42,56 @@ async def button_10_class(message: Message):
 @router.message(F.text == 'Приложения')
 async def apps(message: Message):
     await message.answer('Выберите нужную тему', reply_markup=kb.apps)
+    
+@router.callback_query(F.data == 'test_tasks')
+async def query_7_class(callback: CallbackQuery):
+    await callback.answer('Вы выбрали категорию')
+    await callback.message.answer('Выберите нужную тему', reply_markup=kb.test_class)
+    
+@router.callback_query(F.data == 'tasks')
+async def task(callback: CallbackQuery):
+    await callback.answer('Вы выбрали категорию')
+    await callback.message.answer('Выберите нужную тему', reply_markup=kb.tasks)   
+    
+@router.callback_query(F.data == 'solution')
+async def solution(callback: CallbackQuery):
+    await callback.answer('Вы выбрали категорию')
+    await callback.message.answer('Выберите нужную тему', reply_markup=kb.task_solution)
+    
+@router.callback_query(F.data == 'multimedia')
+async def multimedia(callback: CallbackQuery):
+    await callback.answer('Вы выбрали категорию')
+    await callback.message.answer('Выберите интересующую тему', reply_markup=kb.multimedia)
+    
+@router.callback_query(F.data == 'history')
+async def history(callback: CallbackQuery):
+    await callback.answer('Вы выбрали категорию')
+    await callback.message.answer('Выберите нужную категорию', reply_markup=kb.hist_information)
+    
+@router.callback_query(F.data == 'dictionary')
+async def dictionary(callback: CallbackQuery):
+    await callback.answer('Вы выбрали категорию')
+    await callback.message.answer('Выберите нужные определение',reply_markup=kb.dictionary)
 
+    
 
 @router.callback_query(F.data == 'Gravity')
 async def query_7_class(callback: CallbackQuery):
+    await callback.answer('Вы выбрали категорию')
+    await callback.message.answer('Вы выбрали тему. В будущем тут появится определенный текст')
+    
+@router.callback_query(F.data == 'test_7')
+async def test_7_class(callback: CallbackQuery):
+    await callback.answer('Вы выбрали категорию')
+    await callback.message.answer('Вы выбрали тему. В будущем тут появится определенный текст')
+    
+@router.callback_query(F.data == 'test_9')
+async def test_9_class(callback: CallbackQuery):
+    await callback.answer('Вы выбрали категорию')
+    await callback.message.answer('Вы выбрали тему. В будущем тут появится определенный текст')
+    
+@router.callback_query(F.data == 'test_10')
+async def test_10_class(callback: CallbackQuery):
     await callback.answer('Вы выбрали категорию')
     await callback.message.answer('Вы выбрали тему. В будущем тут появится определенный текст')
 

@@ -50,7 +50,25 @@ task_solution = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='Уровень В', callback_data='level_B')],
     [InlineKeyboardButton(text='Уровень С', callback_data='level_C')]])
 
-multimedia = InlineKeyboardMarkup(inline_keyboard=[[]])
+multimedia = InlineKeyboardMarkup(inline_keyboard=[
+    [InlineKeyboardButton(text='Опыт Г.Кавендиша', callback_data='experience_K')],
+    [InlineKeyboardButton(text='Опыт Ф.Жолли', callback_data='experience_F')],
+    [InlineKeyboardButton(text='Gif - первой космической скорости', callback_data='gif')]])
+
+hist_information = InlineKeyboardMarkup(inline_keyboard=[
+    [InlineKeyboardButton(text='Мультимедийная презентация', callback_data='presentation')],
+    [InlineKeyboardButton(text='Текстовый документ', callback_data='document')]])
+
+dictionary = InlineKeyboardMarkup(inline_keyboard=[
+    [InlineKeyboardButton(text='Сила тяжести', callback_data='power'),
+     InlineKeyboardButton(text='Гравитационные силы', callback_data='gravitation')],
+    [InlineKeyboardButton(text='Всемирное тяготение', callback_data='universal_gravity'),
+     InlineKeyboardButton(text='Гравитационная постоянная', callback_data='constant_gr')],
+    [InlineKeyboardButton(text='Закон всемирного тяготения', callback_data='law_gravity'),
+     InlineKeyboardButton(text='Масса', callback_data='weight')],
+    [InlineKeyboardButton(text='Искусственные спутники земли', callback_data='satellites'),
+     InlineKeyboardButton(text='Первая космичесая скорость', callback_data='cosmic_velocity')],
+    ])
 
 get_number = ReplyKeyboardMarkup(keyboard=[[KeyboardButton(text='Отправить номер',
                                                            request_contact=True)]],
