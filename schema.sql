@@ -1,0 +1,29 @@
+CREATE TABLE IF NOT EXISTS textclass (
+id_class INTEGER PRIMARY KEY AUTOINCREMENT,
+full_name TEXT,
+description VARCHAR,
+);
+
+CREATE TABLE IF NOT EXISTS photoclass (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+path_photo TEXT,
+id_photo INTEGER,
+FOREIGN KEY (id_photo) REFERENCES textclass(id_class)
+);
+
+CREATE TABLE IF NOT EXISTS photoclass (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+path_video TEXT,
+id_video INTEGER,
+FOREIGN KEY (id_video) REFERENCES textclass(id_class)
+);
+
+CREATE TABLE IF NOT EXISTS users (
+user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+);
+
+CREATE TABLE IF NOT EXISTS positions (
+position_id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+);
