@@ -1,7 +1,6 @@
 import asyncio, os
 from aiogram import Bot, Dispatcher
 
-from handlers import router
 from dotenv import load_dotenv
 from handlers import bot_message
 from callback import callback_class, callback_tasks
@@ -12,7 +11,7 @@ async def main():
     bot = Bot(token=os.environ.get('BOT_TOKEN'))
     dp = Dispatcher()
     
-    dp.include_router(
+    dp.include_routers(
         bot_message.router,
         callback_tasks.router,
         callback_class.router

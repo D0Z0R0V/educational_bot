@@ -9,7 +9,7 @@ router = Router()
 
 @router.message(CommandStart())
 async def cmd_start(message: Message):
-    await message.answer_sticker(sticker='CAACAgIAAxreplayAAEL_bFmK1wHzF7Lm-Kg415zk-5St4Tn-AACYw4AAgtaoEg7Cb-9icYZzTQE')
+    await message.answer_sticker(sticker='CAACAgIAAxkBAAEMEsxmO0ILWBxyCcnLgN6I32cbEoIuLQACYw4AAgtaoEg7Cb-9icYZzTUE')
     await message.answer('Привет!\n Я твой помощник в мире физике, пожалуйста выбери\
         интересующую тебя тему', reply_markup=replay.main)
 
