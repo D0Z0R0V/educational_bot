@@ -11,11 +11,14 @@ load_dotenv()
 async def main():
     bot = Bot(token=os.environ.get('BOT_TOKEN'))
     dp = Dispatcher()
+    
     dp.include_router(
         bot_message.router,
         callback_tasks.router,
-        callback_tasks.router
+        callback_class.router
     )
+    
+    await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)
     
 if __name__ == "__main__":

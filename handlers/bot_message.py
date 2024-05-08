@@ -2,7 +2,7 @@ from aiogram import F, Router
 from aiogram.types import Message
 from aiogram.filters import Command, CommandStart
 
-from keyboards import replay
+from keyboards import replay, inline
 
 
 router = Router()
@@ -19,16 +19,16 @@ async def cmd_help(message: Message):
     
 @router.message(F.text == '7 класс')
 async def button_7_class(message: Message):
-    await message.answer('Выберите нужную тему', reply_markup=replay.class_7)
+    await message.answer('Выберите нужную тему', reply_markup=inline.class_7)
     
 @router.message(F.text == '9 класс')
 async def button_9_class(message: Message):
-    await message.answer('Выберите нужную тему', reply_markup=replay.class_9)
+    await message.answer('Выберите нужную тему', reply_markup=inline.class_9)
     
 @router.message(F.text == '10 класс')
 async def button_10_class(message: Message):
-    await message.answer('Выберите нужную тему', reply_markup=replay.class_10)
+    await message.answer('Выберите нужную тему', reply_markup=inline.class_10)
     
 @router.message(F.text == 'Приложения')
 async def apps(message: Message):
-    await message.answer('Выберите нужную тему', reply_markup=replay.apps)
+    await message.answer('Выберите нужную тему', reply_markup=inline.apps)
