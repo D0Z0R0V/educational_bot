@@ -10,3 +10,4 @@ async def get_json_data(filename: str) -> list:
         async with aiofiles.open(path, "r", encoding="utf-8") as file:
             return loads(await file.read())
     return []
+        

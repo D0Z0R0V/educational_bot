@@ -2,7 +2,7 @@ from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 class_7 = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='Явление тяготения. Сила тяжести', callback_data='Gravity')],
-    [InlineKeyboardButton(text='Cила тяжести на других планетах', callback_data='planets')]])
+    [InlineKeyboardButton(text='Cила тяжести на других планетах', callback_data='Planets')]])
 
 class_9 = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='Закон всемирного тяготения', 

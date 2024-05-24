@@ -1,36 +1,27 @@
 from contextlib import suppress
+
 from aiogram import Router, F
-from aiogram.types import CallbackQuery, InputFile
+from aiogram.types import CallbackQuery
 from aiogram.exceptions import TelegramBadRequest
 
 from keyboards import fabrics
 from data.subloader import get_json_data
 
-
 router = Router()
 
 @router.callback_query(fabrics.Pagination.filter(F.action.in_(["prev", "next"])))
 async def pagination_handler(call: CallbackQuery, callback_data: fabrics.Pagination):
-    class_name = callback_data.class_name
-    smiles = await get_json_data("class.json")
+    smiles = await get_json_data("class7.json")
     
-    if class_name not in smiles:
-        await call.answer("Invalid class selected", show_alert=True)
-        return
-
     page_num = int(callback_data.page)
-    page = page_num - 1 if callback_data.action == "prev" and page_num > 0 else page_num
+    page = page_num - 1 if page_num > 0 else 0
 
     if callback_data.action == "next":
-        page = page_num + 1 if page_num < (len(smiles[class_name]) - 1) else page_num
-
-    image_path, description = smiles[class_name][page]
+        page = page_num + 1 if page_num < (len(smiles) - 1) else page_num
 
     with suppress(TelegramBadRequest):
-        await call.message.delete()  # Удалить старое сообщение
-        await call.message.answer_photo(
-            photo=InputFile(image_path),
-            caption=f"<b>{description}</b>",
-            reply_markup=fabrics.paginator(class_name, page)
+        await call.message.edit_text(
+            f"{smiles[page][0]} <b>{smiles[page][1]}</b>",
+            reply_markup=fabrics.paginator(page)
         )
     await call.answer()
