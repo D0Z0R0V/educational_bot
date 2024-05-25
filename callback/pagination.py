@@ -11,7 +11,7 @@ router = Router()
 
 @router.callback_query(fabrics.Pagination.filter(F.action.in_(["prev", "next"])))
 async def pagination_handler(call: CallbackQuery, callback_data: fabrics.Pagination):
-    smiles = await get_json_data("class7.json")
+    smiles = await get_json_data(callback_data.file_name)
     
     page_num = int(callback_data.page)
     page = page_num - 1 if page_num > 0 else 0
