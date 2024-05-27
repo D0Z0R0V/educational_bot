@@ -2,7 +2,6 @@ from aiogram.filters.callback_data import CallbackData
 from aiogram.types import InlineKeyboardButton
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
-
 class Pagination(CallbackData, prefix="pag"):
     action: str
     page: int
