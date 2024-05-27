@@ -22,7 +22,6 @@ async def pagination_handler(call: CallbackQuery, callback_data: fabrics.Paginat
     elif callback_data.action == "prev":
         page_num -= 1
 
-    # Убедитесь, что индекс страницы находится в допустимом диапазоне
     page_num = max(0, min(page_num, len(smiles) - 1))
     
     print(f"Action: {callback_data.action}, Page: {page_num}, Data: {smiles[page_num]}")
