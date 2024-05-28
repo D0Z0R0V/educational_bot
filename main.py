@@ -3,7 +3,10 @@ from aiogram import Bot, Dispatcher
 
 from dotenv import load_dotenv
 from handlers import bot_message
-from callback import callback_class, callback_tasks, pagination
+from callback import (callback_class, 
+                      callback_tasks, 
+                      pagination,
+                      callback_slovar)
 
 load_dotenv()
 
@@ -15,7 +18,8 @@ async def main():
         bot_message.router,
         callback_tasks.router,
         pagination.router,
-        callback_class.router
+        callback_class.router,
+        callback_slovar.router
     )
     
     await bot.delete_webhook(drop_pending_updates=True)

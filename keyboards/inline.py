@@ -27,9 +27,9 @@ apps = InlineKeyboardMarkup(inline_keyboard=[
      InlineKeyboardButton(text='словарь', callback_data='dictionary')]])
 
 test_class = InlineKeyboardMarkup(inline_keyboard=[
-    [InlineKeyboardButton(text='Тестовые задания для 7 класса', callback_data='test_7')],
-    [InlineKeyboardButton(text='Тестовые задания для 9 класса', callback_data='test_9')],
-    [InlineKeyboardButton(text='Тестовые задания для 10 класса', callback_data='test_10')]])
+    [InlineKeyboardButton(text='Тестовые задания для 7 класса', url='https://onlinetestpad.com/oiupgzlfatas4')],
+    [InlineKeyboardButton(text='Тестовые задания для 9 класса', url='https://onlinetestpad.com/5s7nf3zizhvyg')],
+    [InlineKeyboardButton(text='Тестовые задания для 10 класса', url='https://onlinetestpad.com/ap4cmnfkwsglc')]])
 
 tasks = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='Задачи с решением', callback_data='solution')],
@@ -47,8 +47,8 @@ multimedia = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='Gif - первой космической скорости', callback_data='gif')]])
 
 hist_information = InlineKeyboardMarkup(inline_keyboard=[
-    [InlineKeyboardButton(text='Мультимедийная презентация', callback_data='presentation')],
-    [InlineKeyboardButton(text='Текстовый документ', callback_data='document')]])
+    [InlineKeyboardButton(text='Мультимедийная презентация', url='')],
+    [InlineKeyboardButton(text='Текстовый документ', url='')]])
 
 dictionary = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='Сила тяжести', callback_data='power'),
