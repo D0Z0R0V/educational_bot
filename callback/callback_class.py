@@ -36,3 +36,21 @@ async def get_93_class(callback: CallbackQuery):
     smiles = await get_json_data("class93.json")
     await callback.answer('Вы выбрали категорию')
     await callback.message.answer(text=f"{smiles[0][0]} <b>{smiles[0][1]}</b>", reply_markup=fabrics.paginator(file_name="class93.json"))
+    
+@router.callback_query(F.data == 'abstract')
+async def get_consp_class(callback: CallbackQuery):
+    smiles = await get_json_data("consp.json")
+    await callback.answer('Вы выбрали категорию')
+    await callback.message.answer(text=f"{smiles[0][0]} <b>{smiles[0][1]}</b>", reply_markup=fabrics.paginator(file_name="consp.json"))
+
+@router.callback_query(F.data == 'task_OGE')
+async def get_task_OGE(callback: CallbackQuery):
+    smiles = await get_json_data('OGE.json')
+    await callback.answer('Вы выбрали категорию')
+    await callback.message.answer(text=f"{smiles[0][0]} <b>{smiles[0][1]}</b>", reply_markup=fabrics.paginator(file_name="OGE.json"))
+    
+@router.callback_query(F.data == 'task_EGE')
+async def get_task_OGE(callback: CallbackQuery):
+    smiles = await get_json_data('EGE.json')
+    await callback.answer('Вы выбрали категорию')
+    await callback.message.answer(text=f"{smiles[0][0]} <b>{smiles[0][1]}</b>", reply_markup=fabrics.paginator(file_name="EGE.json"))
