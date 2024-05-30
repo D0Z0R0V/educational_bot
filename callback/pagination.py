@@ -2,6 +2,7 @@ from contextlib import suppress
 from aiogram import Router, F, types
 from aiogram.types import CallbackQuery
 from aiogram.exceptions import TelegramBadRequest
+
 from keyboards import fabrics
 from data.subloader import get_json_data
 
@@ -20,12 +21,12 @@ async def pagination_handler(call: CallbackQuery, callback_data: fabrics.Paginat
     if callback_data.action == "next":
         page_num += 1
         if page_num >= len(smiles):
-            smiles = await get_json_data("um.json")
+            page_num = 0  # Если достигли конца, возвращаемся к началу
     elif callback_data.action == "prev":
         page_num -= 1
+        if page_num < 0:
+            page_num = len(smiles) - 1  # Если достигли начала, переходим к концу
 
-    page_num = max(0, min(page_num, len(smiles) - 1))
-    
     item = smiles[page_num]
     photo_path = item[0]
     caption = item[1]
@@ -33,11 +34,17 @@ async def pagination_handler(call: CallbackQuery, callback_data: fabrics.Paginat
     print(f"Action: {callback_data.action}, Page: {page_num}, Data: {item}")
 
     with suppress(TelegramBadRequest):
-        photo = types.FSInputFile(photo_path)
-        await call.message.answer_photo(
-            photo=photo,
-            caption=caption,
-            reply_markup=fabrics.paginator(page_num, callback_data.file_name)
-        )
+        if photo_path:
+            photo = types.FSInputFile(photo_path)
+            await call.message.answer_photo(
+                photo=photo,
+                caption=caption,
+                reply_markup=fabrics.paginator(page_num, callback_data.file_name)
+            )
+        else:
+            await call.message.answer(
+                text=caption,
+                reply_markup=fabrics.paginator(page_num, callback_data.file_name)
+            )
         await call.message.delete()
     await call.answer()

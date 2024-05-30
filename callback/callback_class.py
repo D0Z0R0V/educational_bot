@@ -12,12 +12,18 @@ async def get_7_class(callback: CallbackQuery):
     await callback.answer('Вы выбрали категорию')
     photo_path = smiles[0][0]
     caption = smiles[0][1]
-    photo = types.FSInputFile(photo_path)
-    await callback.message.answer_photo(
-        photo=photo,
-        caption=caption,
-        reply_markup=fabrics.paginator(file_name="class7.json")
-    )
+    if photo_path:
+        photo = types.FSInputFile(photo_path)
+        await callback.message.answer_photo(
+            photo=photo,
+            caption=caption,
+            reply_markup=fabrics.paginator(file_name="class7.json")
+        )
+    else:
+        await callback.message.answer(
+            text=caption,
+            reply_markup=fabrics.paginator(file_name="class7.json")
+        )
 
     
 @router.callback_query(F.data == "Planets")
