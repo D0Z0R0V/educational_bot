@@ -47,8 +47,8 @@ multimedia = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='Gif - первой космической скорости', callback_data='gif')]])
 
 hist_information = InlineKeyboardMarkup(inline_keyboard=[
-    [InlineKeyboardButton(text='Мультимедийная презентация', url='')],
-    [InlineKeyboardButton(text='Текстовый документ', url='')]])
+    [InlineKeyboardButton(text='Мультимедийная презентация', url='https://disk.yandex.ru/i/C8K_t8dSSN3Ffw')],
+    [InlineKeyboardButton(text='Текстовый документ', url='https://disk.yandex.ru/i/oXJjkJveTXJSDQ')]])
 
 dictionary = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='Сила тяжести', callback_data='power'),
