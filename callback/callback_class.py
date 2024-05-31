@@ -1,5 +1,6 @@
 from aiogram import Router, F, types
 from aiogram.types import CallbackQuery
+from aiogram.enums import ChatAction
 
 from data.subloader import get_json_data
 from keyboards import fabrics
@@ -8,7 +9,12 @@ router = Router()
 
 @router.callback_query(F.data == "Gravity")
 async def get_7_class(callback: CallbackQuery):
-    smiles = await get_json_data("class7.json")  
+    smiles = await get_json_data("class7.json") 
+    await callback.message.bot.send_chat_action(
+        chat_id=callback.message.chat.id,
+        action=ChatAction.UPLOAD_PHOTO
+    )
+     
     await callback.answer('Вы выбрали категорию')
     photo_path = smiles[0][0]
     caption = smiles[0][1]
@@ -273,3 +279,15 @@ async def get_level_C(callback: CallbackQuery):
             text=caption,
             reply_markup=fabrics.paginator(file_name="level_C.json")
         )
+        
+@router.callback_query(F.data == 'gif')
+async def get_gif(callback: CallbackQuery):
+    await callback.answer('Вы выбрали категорию')
+    await callback.message.bot.send_chat_action(
+        chat_id=callback.message.chat.id,
+        action=ChatAction.UPLOAD_VIDEO
+    )
+          
+    await callback.message.answer_document(document=types.FSInputFile(
+        path='data/application/gif_2.gif'
+    ))

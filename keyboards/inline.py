@@ -42,8 +42,8 @@ task_solution = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='Уровень С', callback_data='level_C')]])
 
 multimedia = InlineKeyboardMarkup(inline_keyboard=[
-    [InlineKeyboardButton(text='Опыт Г.Кавендиша', callback_data='experience_K')],
-    [InlineKeyboardButton(text='Опыт Ф.Жолли', callback_data='experience_F')],
+    [InlineKeyboardButton(text='Опыт Г.Кавендиша', url='https://disk.yandex.com.am/i/vv9ebDMCXMdFDg')],
+    [InlineKeyboardButton(text='Опыт Ф.Жолли', url='https://disk.yandex.com.am/i/r6UM38TQ0F-3VA')],
     [InlineKeyboardButton(text='Gif - первой космической скорости', callback_data='gif')]])
 
 hist_information = InlineKeyboardMarkup(inline_keyboard=[

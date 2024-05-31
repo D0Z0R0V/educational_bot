@@ -2,6 +2,7 @@ from contextlib import suppress
 from aiogram import Router, F, types
 from aiogram.types import CallbackQuery
 from aiogram.exceptions import TelegramBadRequest
+from aiogram.enums import ChatAction
 
 from keyboards import fabrics
 from data.subloader import get_json_data
@@ -35,6 +36,10 @@ async def pagination_handler(call: CallbackQuery, callback_data: fabrics.Paginat
 
     with suppress(TelegramBadRequest):
         if photo_path:
+            await call.message.bot.send_chat_action(
+                chat_id=call.message.chat.id,
+                action=ChatAction.UPLOAD_PHOTO
+            )
             photo = types.FSInputFile(photo_path)
             await call.message.answer_photo(
                 photo=photo,
@@ -42,6 +47,10 @@ async def pagination_handler(call: CallbackQuery, callback_data: fabrics.Paginat
                 reply_markup=fabrics.paginator(page_num, callback_data.file_name)
             )
         else:
+            await call.message.bot.send_chat_action(
+                chat_id=call.message.chat.id,
+                action=ChatAction.TYPING
+            )
             await call.message.answer(
                 text=caption,
                 reply_markup=fabrics.paginator(page_num, callback_data.file_name)
