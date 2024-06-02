@@ -2,7 +2,11 @@ env/
 __pycache__/
 db.sqlite3
 .env
+data/task/*.json
+data/task/photo/*.jpg
 data/application/*.json
+data/application/photo/*.jpg
+data/application/gif_2.gif
 data/class/*.json
-data/class/photo
+data/class/photo/*.jpg
 data/photo_slovar
