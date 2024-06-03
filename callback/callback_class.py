@@ -35,6 +35,11 @@ async def get_7_class(callback: CallbackQuery):
 @router.callback_query(F.data == "Planets")
 async def get_72_class(callback: CallbackQuery):
     smiles = await get_json_data("class72.json")
+    await callback.message.bot.send_chat_action(
+        chat_id=callback.message.chat.id,
+        action=ChatAction.UPLOAD_PHOTO
+    )
+    
     await callback.answer('Вы выбрали категорию')
     photo_path = smiles[0][0]
     caption = smiles[0][1]
@@ -54,6 +59,11 @@ async def get_72_class(callback: CallbackQuery):
 @router.callback_query(F.data == "law")
 async def get_9_class(callback: CallbackQuery):
     smiles = await get_json_data("class9.json")
+    await callback.message.bot.send_chat_action(
+        chat_id=callback.message.chat.id,
+        action=ChatAction.UPLOAD_PHOTO
+    )
+    
     await callback.answer('Вы выбрали категорию')
     photo_path = smiles[0][0]
     caption = smiles[0][1]
@@ -73,6 +83,11 @@ async def get_9_class(callback: CallbackQuery):
 @router.callback_query(F.data == "boost")
 async def get_92_class(callback: CallbackQuery):
     smiles = await get_json_data("class92.json")
+    await callback.message.bot.send_chat_action(
+        chat_id=callback.message.chat.id,
+        action=ChatAction.UPLOAD_PHOTO
+    )
+    
     await callback.answer('Вы выбрали категорию')
     photo_path = smiles[0][0]
     caption = smiles[0][1]
@@ -92,6 +107,11 @@ async def get_92_class(callback: CallbackQuery):
 @router.callback_query(F.data == "artificial_satellites")
 async def get_93_class(callback: CallbackQuery):
     smiles = await get_json_data("class93.json")
+    await callback.message.bot.send_chat_action(
+        chat_id=callback.message.chat.id,
+        action=ChatAction.UPLOAD_PHOTO
+    )
+    
     await callback.answer('Вы выбрали категорию')
     photo_path = smiles[0][0]
     caption = smiles[0][1]
@@ -111,6 +131,11 @@ async def get_93_class(callback: CallbackQuery):
 @router.callback_query(F.data == '_universal_gravity')
 async def get_10_class(callback: CallbackQuery):
     smiles = await get_json_data("class10.json")
+    await callback.message.bot.send_chat_action(
+        chat_id=callback.message.chat.id,
+        action=ChatAction.UPLOAD_PHOTO
+    )
+    
     await callback.answer('Вы выбрали категорию')
     photo_path = smiles[0][0]
     caption = smiles[0][1]
@@ -130,6 +155,11 @@ async def get_10_class(callback: CallbackQuery):
 @router.callback_query(F.data == 'other_planets')
 async def get_102_class(callback: CallbackQuery):
     smiles = await get_json_data("class102.json")
+    await callback.message.bot.send_chat_action(
+        chat_id=callback.message.chat.id,
+        action=ChatAction.UPLOAD_PHOTO
+    )
+    
     await callback.answer('Вы выбрали категорию')
     photo_path = smiles[0][0]
     caption = smiles[0][1]
@@ -149,6 +179,11 @@ async def get_102_class(callback: CallbackQuery):
 @router.callback_query(F.data == 'first_speed')
 async def get_103_class(callback: CallbackQuery):
     smiles = await get_json_data("class103.json")
+    await callback.message.bot.send_chat_action(
+        chat_id=callback.message.chat.id,
+        action=ChatAction.UPLOAD_PHOTO
+    )
+    
     await callback.answer('Вы выбрали категорию')
     photo_path = smiles[0][0]
     caption = smiles[0][1]
@@ -169,6 +204,11 @@ async def get_103_class(callback: CallbackQuery):
 @router.callback_query(F.data == 'abstract')
 async def get_consp_class(callback: CallbackQuery):
     smiles = await get_json_data("consp.json")
+    await callback.message.bot.send_chat_action(
+        chat_id=callback.message.chat.id,
+        action=ChatAction.UPLOAD_PHOTO
+    )
+    
     await callback.answer('Вы выбрали категорию')
     photo_path = smiles[0][0]
     caption = smiles[0][1]

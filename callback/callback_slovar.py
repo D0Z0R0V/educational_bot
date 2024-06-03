@@ -1,5 +1,6 @@
 from aiogram import Router, F, types
 from aiogram.types import CallbackQuery
+from aiogram.enums import ChatAction
 
 
 router = Router()
@@ -30,6 +31,11 @@ async def slovar6(callback: CallbackQuery):
 @router.callback_query(F.data == 'law_gravity')
 async def slovar3(callback: CallbackQuery):
     photo_path = 'data/photo_slovar/image.png'
+    await callback.message.bot.send_chat_action(
+        chat_id=callback.message.chat.id,
+        action=ChatAction.UPLOAD_PHOTO
+    )
+    
     await callback.answer('Кнопка нажата')
     await callback.message.answer_photo(
         photo=types.FSInputFile(
@@ -40,6 +46,11 @@ async def slovar3(callback: CallbackQuery):
 @router.callback_query(F.data == 'cosmic_velocity')
 async def slovar4(callback: CallbackQuery):
     photo_path = 'data/photo_slovar/photo.jpg'
+    await callback.message.bot.send_chat_action(
+        chat_id=callback.message.chat.id,
+        action=ChatAction.UPLOAD_PHOTO
+    )
+    
     await callback.answer('Кнопка нажата')
     await callback.message.answer_photo(
         photo=types.FSInputFile(
@@ -50,6 +61,11 @@ async def slovar4(callback: CallbackQuery):
 @router.callback_query(F.data == 'constant_gr')
 async def slovar6(callback: CallbackQuery):
     photo_path = 'data/photo_slovar/photo_2.jpg'
+    await callback.message.bot.send_chat_action(
+        chat_id=callback.message.chat.id,
+        action=ChatAction.UPLOAD_PHOTO
+    )
+    
     await callback.answer('Кнопка нажата')
     await callback.message.answer_photo(
         photo=types.FSInputFile(
@@ -60,6 +76,11 @@ async def slovar6(callback: CallbackQuery):
 @router.callback_query(F.data == 'weight')
 async def slovar7(callback: CallbackQuery):
     photo_list = ['data/photo_slovar/photo_31.jpg','data/photo_slovar/photo_32.jpg']
+    await callback.message.bot.send_chat_action(
+        chat_id=callback.message.chat.id,
+        action=ChatAction.UPLOAD_PHOTO
+    )
+    
     await callback.answer('Кнопка нажата')
     for index in photo_list:
         await callback.message.answer_photo(
